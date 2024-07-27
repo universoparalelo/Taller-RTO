@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Consultar tarifas</h1>
+
+{% if error %}
+    <p>{{error}}</p>
+{% endif %}
+
+<form action="/ver/" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="marca" class="form-label">Marca: </label>
+      <input type="text" class="form-control" id="marca" aria-describedby="emailHelp" name="marca">
+    </div>
+    <div class="mb-3">
+      <label for="modelo" class="form-label">Modelo: </label>
+      <input type="text" class="form-control" id="modelo" name="modelo">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+
+{% endblock %}
