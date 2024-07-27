@@ -26,4 +26,4 @@ urlpatterns = [
     path('consultar/', views.consultarTarifa),
     path('ver/', views.verTarifa),
     path('verTodasTarifas/', views.verTodasTarifas)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
