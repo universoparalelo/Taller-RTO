@@ -82,8 +82,9 @@ WSGI_APPLICATION = 'rto.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres@localhost/postgres',
-    conn_max_age=600)
+    'default': dj_database_url.config(
+        default='postgresql://postgres@localhost/postgres',
+        conn_max_age=600)
 }
 
 
@@ -121,11 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = 'static/'
-
-MEDIA_ROOT = BASE_DIR / 'media'
-
-MEDIA_URL = '/media/'
 
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
