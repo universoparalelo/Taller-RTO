@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'rto.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres@localhost/postgres:5432/rto',
+        default='postgresql://postgres@localhost/postgres',
         conn_max_age=600)
 }
 
