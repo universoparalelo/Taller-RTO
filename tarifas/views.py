@@ -19,14 +19,19 @@ def verTarifa(request):
         print(tarifa)
         return render(request, 'ver_tarifa.html', {'tarifa':tarifa, 'vehiculo':vehiculo})
     except:
-        return render(request, 'consultar_tarifa.html', {'error': 'No se encontró ninguna tarifa para ese vehiculo. Puede ver la lista completa de tarifas en el apartado "Ver tarifas", sino puede comunicarse con nosotros #333 444555'})
+        return render(request, 'consultar_tarifa.html', {'error': 'No se encontró ninguna tarifa para ese vehiculo. Puede ver la lista completa de tarifas en el apartado "Tarifas", sino puede comunicarse con nosotros al #333 444555'})
     
 def verTodasTarifas(request):
-    vehiculos = Vehiculo.objects.all()
-    conjunto = []
+    try:
+        vehiculos = Vehiculo.objects.all()
+        conjunto = []
+        
+        for v in vehiculos:
+            tarifa = Tarifa.objects.get(id=v.tarifa_id_id)
+            conjunto.append({'marca':v.marca, 'modelo':v.modelo, 'frecuencia':tarifa.frecuencia, 'categoria':tarifa.categoria, 'precio': tarifa.precio, 'antiguedad': v.antiguedad})
+        return render(request, 'todas_las_tarifas.html', {'vehiculos':conjunto})
+    except:
+        return render(request, 'todas_las_tarifas.html', {'error':"No se encotró ninguna tarifa aún."})
+
+
     
-    for v in vehiculos:
-        tarifa = Tarifa.objects.get(id=v.tarifa_id_id)
-        conjunto.append({'marca':v.marca, 'modelo':v.modelo, 'frecuencia':tarifa.frecuencia, 'categoria':tarifa.categoria, 'precio': tarifa.precio})
-    
-    return render(request, 'todas_las_tarifas.html', {'vehiculos':conjunto})

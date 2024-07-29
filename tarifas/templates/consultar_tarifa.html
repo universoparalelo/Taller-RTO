@@ -5,7 +5,7 @@
 <h1>Consultar tarifas</h1>
 
 {% if error %}
-    <p>{{error}}</p>
+    <p style="color: red">{{error}}</p>
 {% endif %}
 
 <form action="/ver/" method="POST">
@@ -18,6 +18,10 @@
       <label for="modelo" class="form-label">Modelo: </label>
       <input type="text" class="form-control" id="modelo" name="modelo">
     </div>
+    <!-- <div class="mb-3">
+      <label for="antiguedad" class="form-label">Antiguedad: </label>
+      <input type="text" class="form-control" id="antiguedad" name="antiguedad">
+    </div> -->
     <button type="submit" class="btn btn-primary">Buscar</button>
   </form>
 
