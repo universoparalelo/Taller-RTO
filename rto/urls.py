@@ -25,7 +25,8 @@ urlpatterns = [
     path('', views.index),
     path('consultar/', views.consultarTarifa),
     path('ver/', views.verTarifa),
-    path('verTodasTarifas/', views.verTodasTarifas)
+    path('verTodasTarifas/', views.verTodasTarifas),
+    path('load-modelos/', views.load_modelos, name='load_modelos')
 ] 
 
 # if settings.DEBUG:
